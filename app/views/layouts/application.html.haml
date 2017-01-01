@@ -7,5 +7,5 @@
     = javascript_include_tag 'application'
   %body
     - flash.each do |name, message|
-      %div{ class: #{name} } #{message}
+      %div{class: "#{name}"} #{message}
     = yield
