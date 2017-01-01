@@ -8,4 +8,16 @@
   %body
     - flash.each do |name, message|
       %div{class: "#{name}"} #{message}
+    .section
+      = link_to "Home", root_path
+      - if user_signed_in?
+        = precede ' | ' do
+          = current_user.email
+        = precede ' | ' do
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
+      - else
+        = precede ' | ' do
+          = link_to "Sign In", new_user_session_path
+        = precede ' | ' do
+          = link_to "Sign Up", new_user_registration_path
     = yield
