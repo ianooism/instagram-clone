@@ -2,12 +2,14 @@
 %html
   %head
     %title
+    -# refresh cloud9 web server
+    -# %meta{ 'http-equiv': 'refresh', content: '60' }
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     - flash.each do |name, message|
-      %div{class: "#{name}"} #{message}
+      %div{ class: "#{name}" } #{message}
     .section
       = link_to "Home", root_path
       - if user_signed_in?
